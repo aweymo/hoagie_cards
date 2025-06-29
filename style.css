@@ -1,20 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Cooper+Black&family=Special+Elite&display=swap');
+
 body {
+  font-family: 'Special Elite', serif;
+  color: #3b2f2f;
+  background-color: #F0F8FF;
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f9f3e3;
-  color: #333;
   text-align: center;
 }
 
 header {
   padding: 2rem 1rem;
-  background-color: #ffeabf;
+  background-color: #F0F8FF;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-  font-size: 2rem;
+  font-family: 'Cooper Black', serif;
+  color: #cc0000;
+  font-size: 2.2rem;
+  font-weight: bold;
   margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 1.15rem;
+  line-height: 1.7;
 }
 
 .viewer-container {
@@ -46,14 +56,20 @@ h1 {
   margin-top: 0.5rem;
   padding: 0.4rem 0.8rem;
   font-size: 1rem;
-  background-color: #fef4cc;
-  border: 1px solid #bbb;
+  background-color: #cc0000;
+  color: #fff;
+  border: none;
   border-radius: 6px;
   cursor: pointer;
+  font-family: 'Special Elite', serif;
 }
 
 .fullscreen-btn:hover {
-  background-color: #fff1a5;
+  background-color: #a00000;
+}
+
+canvas {
+  border-radius: 10px;
 }
 
 @media (min-width: 800px) {
