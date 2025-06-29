@@ -14,18 +14,29 @@ function initViewer(containerId, modelPath) {
   renderer.setSize(container.clientWidth, container.clientHeight);
   container.appendChild(renderer.domElement);
 
-  const light = new THREE.HemisphereLight(0xffffff, 0x444444);
-  scene.add(light);
-
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
+
+  const light = new THREE.HemisphereLight(0xffffff, 0x444444);
+  scene.add(light);
 
   const loader = new GLTFLoader();
   loader.load(modelPath, gltf => {
     scene.add(gltf.scene);
   }, undefined, error => {
-    console.error('Error loading GLB model:', error);
+    console.error('Failed to load model:', error);
   });
+
+  function resizeRenderer() {
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
+  }
+
+  window.addEventListener('resize', resizeRenderer);
+  document.addEventListener('fullscreenchange', resizeRenderer);
 
   function animate() {
     requestAnimationFrame(animate);
@@ -34,14 +45,8 @@ function initViewer(containerId, modelPath) {
   }
 
   animate();
-
-  window.addEventListener('resize', () => {
-    camera.aspect = container.clientWidth / container.clientHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(container.clientWidth, container.clientHeight);
-  });
 }
 
-// Load both 3D models
+// Load both 3D scenes
 initViewer('viewer1', 'assets/hoagie_scene_1.glb');
 initViewer('viewer2', 'assets/hoagie_scene_2.glb');

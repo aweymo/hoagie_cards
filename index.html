@@ -3,20 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday Hoagie Card</title>
+  <title>🥪 Happy Birthday Hoagie Card</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <h1>🥪 Happy Birthday, [Name]!</h1>
-    <p>This card was built out of sandwich parts... because you're the whole meal 🍅🥬🥖</p>
+    <p>This 3D card is made entirely from sandwich parts... because you’re the whole meal! 🍅🧀🥬</p>
   </header>
 
   <main class="viewer-container">
-    <div class="viewer" id="viewer1"></div>
-    <div class="viewer" id="viewer2"></div>
+    <div class="viewer-wrapper">
+      <div class="viewer" id="viewer1"></div>
+      <button class="fullscreen-btn" onclick="toggleFullscreen('viewer1')">🔲 Fullscreen</button>
+    </div>
+    <div class="viewer-wrapper">
+      <div class="viewer" id="viewer2"></div>
+      <button class="fullscreen-btn" onclick="toggleFullscreen('viewer2')">🔲 Fullscreen</button>
+    </div>
   </main>
 
   <script type="module" src="script.js"></script>
+  <script>
+    function toggleFullscreen(id) {
+      const elem = document.getElementById(id);
+      if (!document.fullscreenElement) {
+        elem.requestFullscreen().catch(err => console.error(err));
+      } else {
+        document.exitFullscreen();
+      }
+    }
+  </script>
 </body>
 </html>
