@@ -67,5 +67,6 @@ function initViewer(containerId, modelPath) {
 }
 
 // Initialize viewers with your model URLs
-initViewer('viewer1', 'https://drive.google.com/uc?export=download&id=1hyvXTI4ZYZGggiSsgz4F23P-NLf1ePz_');
-initViewer('viewer2', 'https://drive.google.com/uc?export=download&id=1EWNiBlR3NZ15GafmbLGI2le4lLf4F6Cv');
+initViewer('viewer1', 'assets/bella.glb');
+initViewer('viewer2', 'assets/xani.glb');
+
