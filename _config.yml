@@ -2,3 +2,7 @@ markdown: kramdown
 theme: null
 plugins: []
 exclude: ["README.md"]
+
+# Add this to include GLB files in build
+include:
+  - assets/*.glb

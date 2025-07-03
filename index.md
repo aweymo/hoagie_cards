@@ -22,7 +22,8 @@ layout: default
   </div>
 </div>
 
-<script type="module" src="/assets/script.js"></script>
+<!-- Use relative path for script -->
+<script type="module" src="./assets/script.js"></script>
 <script>
   function toggleFullscreen(id) {
     const elem = document.getElementById(id);

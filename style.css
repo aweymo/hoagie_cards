@@ -94,3 +94,20 @@ canvas {
   font-weight: 400; 
 }
 
+/* Add to existing styles */
+.viewer {
+  position: relative; /* Needed for positioning loading message */
+  overflow: hidden;
+}
+
+/* Add error message styling */
+.viewer-error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  z-index: 10;
+}
