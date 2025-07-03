@@ -32,11 +32,12 @@
       background-color: #fff;
       padding: 1rem;
       margin: 1rem auto;
-      max-width: 500px;
+      max-width: 800px;
       border-radius: 10px;
       text-align: left;
       font-size: 1.5rem; 
       color: #cc0000;
+      letter-spacing: 0.02em;
     }
 
     .viewer-container {
@@ -62,7 +63,7 @@
       width: 100%;
       height: 100%;
       border-radius: 12px;
-      background-color: #F0F8FF;
+      background-color: #000000;
       --poster-color: #000000;
       --progress-bar-color: #cc0000;
     }
@@ -120,11 +121,13 @@
         src="assets/bella.glb"
         alt="3D model"
         camera-controls
-        shadow-intensity=".5"
-        shadow-softness="0.5"
-        exposure=".5"
+        shadow-intensity="0.35"
+        shadow-softness="0.75"
+        exposure="0.85"
+        environment-image="neutral"
         interaction-prompt="none"
-        ar
+        variant="fresh"
+        interaction-prompt="none" ar
       ></model-viewer>
       <button class="fullscreen-btn" onclick="fullscreenModel(this)">🔍 Fullscreen</button>
     </div>
@@ -135,11 +138,13 @@
         src="assets/xani.glb"
         alt="3D model"
         camera-controls
-        shadow-intensity=".5"
-        shadow-softness="0.5"
-        exposure=".5"
+        shadow-intensity="0.35"
+        shadow-softness="0.75"
+        exposure="0.85"
+        environment-image="neutral"
         interaction-prompt="none"
-        ar
+        variant="fresh"
+        interaction-prompt="none" ar
       ></model-viewer>
       <button class="fullscreen-btn" onclick="fullscreenModel(this)">🔍 Fullscreen</button>
     </div>
@@ -156,6 +161,30 @@
       }
     }
   </script>
+
+<div class="text-card">
+  <p>
+    <strong>Ingredients list:</strong><br>
+    Banana Peppers,<br>
+    Roasted Red Peppers,<br>
+    Hoagie Bread,<br>
+    Red Onions,<br>
+    Cheddar,<br>
+    Mortadella,<br>
+    Swiss,<br>
+    Provolone,<br>
+    Tomato,<br>
+    Capicola,<br>
+    Dill Pickle Spear,<br>
+    White Onion,<br>
+    Havarti,<br>
+    Pepperoni, <br>
+    Love, <br>
+    Andrew
+
+  </p>
+</div>
+
 
 </body>
 </html>
