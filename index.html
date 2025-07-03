@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hoagie Cards</title>
+
+  <!-- Fonts and Model Viewer -->
+  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Shrikhand', cursive;
+      color: #cc0000;
+      background-color: #F0F8FF;
+      margin: 0;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-top: 1rem;
+    }
+
+    p {
+      font-size: 1.15rem;
+      line-height: 1.7;
+    }
+
+    .text-card {
+      background-color: #fff;
+      padding: 1rem;
+      margin: 1rem auto;
+      max-width: 500px;
+      border-radius: 10px;
+      text-align: left;
+      font-size: 1.5rem; 
+      color: #cc0000;
+    }
+
+    .viewer-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 1rem;
+    }
+
+    .viewer-wrapper {
+      position: relative;
+      width: 90vw;
+      max-width: 450px;
+      height: 60vh;
+      background-color: #fff;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      background-color: #F0F8FF;
+      --poster-color: #000000;
+      --progress-bar-color: #cc0000;
+    }
+
+    .fullscreen-btn {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+      background-color: #cc0000;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'Shrikhand', cursive;
+      z-index: 10;
+    }
+
+    .fullscreen-btn:hover {
+      background-color: #a00000;
+    }
+
+    @media (min-width: 800px) {
+      .viewer-container {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      h1 {
+        font-size: 5rem;
+      }
+
+      .text-card {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🥪 HOAGIE CARD 🥪</h1>
+
+  <div class="text-card">
+    <p><strong>Happy Birthday Bella!</strong><br>
+    Xani, Please accept this long overdue hoagie card.<br>
+    I was too busy to make you a hoagie card in April.</p>
+  </div>
+
+  <div class="viewer-container">
+    <!-- Bella Model -->
+    <div class="viewer-wrapper">
+      <model-viewer
+        src="assets/bella.glb"
+        alt="3D model"
+        camera-controls
+        shadow-intensity=".5"
+        shadow-softness="0.5"
+        exposure=".5"
+        interaction-prompt="none"
+        ar
+      ></model-viewer>
+      <button class="fullscreen-btn" onclick="fullscreenModel(this)">🔍 Fullscreen</button>
+    </div>
+
+    <!-- Xani Model -->
+    <div class="viewer-wrapper">
+      <model-viewer
+        src="assets/xani.glb"
+        alt="3D model"
+        camera-controls
+        shadow-intensity=".5"
+        shadow-softness="0.5"
+        exposure=".5"
+        interaction-prompt="none"
+        ar
+      ></model-viewer>
+      <button class="fullscreen-btn" onclick="fullscreenModel(this)">🔍 Fullscreen</button>
+    </div>
+  </div>
+
+  <script>
+    function fullscreenModel(button) {
+      const wrapper = button.parentElement;
+      const viewer = wrapper.querySelector('model-viewer');
+      if (viewer.requestFullscreen) {
+        viewer.requestFullscreen();
+      } else if (viewer.webkitRequestFullscreen) {
+        viewer.webkitRequestFullscreen();
+      }
+    }
+  </script>
+
+</body>
+</html>
