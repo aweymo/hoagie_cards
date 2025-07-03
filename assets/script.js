@@ -4,6 +4,11 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.160.1/exampl
 
 function initViewer(containerId, modelPath) {
   const container = document.getElementById(containerId);
+  if (!container) {
+    console.error(`Container with id "${containerId}" not found.`);
+    return;
+  }
+
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0xf9f3e3);
 
@@ -21,11 +26,25 @@ function initViewer(containerId, modelPath) {
   scene.add(light);
 
   const loader = new GLTFLoader();
-  loader.load(modelPath, gltf => {
-    scene.add(gltf.scene);
-  }, undefined, error => {
-    console.error('Failed to load model:', error);
-  });
+
+  console.log(`Loading model from: ${modelPath}`);
+
+  loader.load(
+    modelPath,
+    gltf => {
+      console.log('Model loaded successfully:', gltf);
+      scene.add(gltf.scene);
+    },
+    xhr => {
+      if (xhr.lengthComputable) {
+        const percentComplete = (xhr.loaded / xhr.total) * 100;
+        console.log(`Model ${containerId} ${percentComplete.toFixed(2)}% loaded`);
+      }
+    },
+    error => {
+      console.error(`Failed to load model for container "${containerId}":`, error);
+    }
+  );
 
   function resizeRenderer() {
     const width = container.clientWidth;
@@ -47,6 +66,6 @@ function initViewer(containerId, modelPath) {
   animate();
 }
 
-// Load both 3D scenes
-initViewer('viewer1', 'assets/hoagie_scene_1.glb');
-initViewer('viewer2', 'assets/hoagie_scene_2.glb');
+// Initialize viewers with your model URLs
+initViewer('viewer1', 'https://drive.google.com/uc?export=download&id=1hyvXTI4ZYZGggiSsgz4F23P-NLf1ePz_');
+initViewer('viewer2', 'https://drive.google.com/uc?export=download&id=1EWNiBlR3NZ15GafmbLGI2le4lLf4F6Cv');
